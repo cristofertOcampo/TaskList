@@ -6,11 +6,6 @@ export default function TodoApp(){
     const [title, setTitle] = useState("hola");
     const [todos, setTodos] = useState([]);
 
-    function handleClick(e){
-        e.preventDefault();
-        setTitle("Cristofert");
-    }
-
     function handleChange(event){
         const value = event.target.value;
         setTitle(value);
@@ -23,17 +18,25 @@ export default function TodoApp(){
             id: crypto.randomUUID(), // Genera una id aleatoria
             title: title,
             compleated: false
-        };
+        }
+        const oldTodos = [...todos]; //Copia    
+        oldTodos.unshift(newTodo);
+
+        setTodos(oldTodos);
     }
 
     return ( 
     <div className={Style.todoContainer}>
         <form className={Style.todoCreateForm} onSubmit={handleSubmit}>
             <input onChange={handleChange} className={Style.todoInput} value={title} />
-            <input onClick={handleClick} type="submit" value="Create todo" className={Style.buttonCreate} />
-        
+            <input onClick={handleSubmit} type="submit" value="Create todo" className={Style.buttonCreate} />
         </form>
+
+        <div className={Style.todosContainer}>
+            {todos.map((item) => (
+                    <div key={item.id}>{item.title}</div>
+                ))}
+        </div>
     </div>
     );
 }
-
