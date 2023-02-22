@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-export const Todo = ({ item, onUpdate }) => {
+export const Todo = ({ item, onUpdate, onDelete }) => {
   const [isEdit, setIsEdit] = useState(false);
 
   const FormEdit = () => {
@@ -41,7 +41,7 @@ export const Todo = ({ item, onUpdate }) => {
       <div className="todoInfo">
         {item.title}
         <button onClick={() => setIsEdit(true)}>Edit</button>
-        <button>Delete</button>
+        <button onClick={(e) => onDelete(item.id)}>Delete</button>
       </div>
     );
   };

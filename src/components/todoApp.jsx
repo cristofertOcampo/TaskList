@@ -33,6 +33,11 @@ export default function TodoApp() {
     setTodos(oldTodos);
   };
 
+  const handleDelete = (id) => {
+    const oldTodos = todos.filter((item) => item.id !== id)
+    setTodos(oldTodos);
+  }
+
   return (
     <div className={Style.todoContainer}>
       <form className={Style.todoCreateForm} onSubmit={handleSubmit}>
@@ -51,7 +56,7 @@ export default function TodoApp() {
 
       <div className={Style.todosContainer}>
         {todos.map((item) => (
-          <Todo key={item.id} item={item} onUpdate={handleUpdate} />
+          <Todo key={item.id} item={item} onUpdate={handleUpdate} onDelete={handleDelete} />
         ))}
       </div>
     </div>
