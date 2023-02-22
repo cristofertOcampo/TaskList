@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { Todo } from './Todo';
 import Style from '../cssComponents/todoApp.module.css'
 
 export default function TodoApp(){
@@ -34,8 +35,8 @@ export default function TodoApp(){
 
         <div className={Style.todosContainer}>
             {todos.map((item) => (
-                    <div key={item.id}>{item.title}</div>
-                ))}
+                <Todo key={item.id} item={item} />
+            ))}
         </div>
     </div>
     );
