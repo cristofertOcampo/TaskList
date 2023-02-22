@@ -4,7 +4,7 @@ import { Todo } from "./Todo";
 import Style from "../cssComponents/todoApp.module.css";
 
 export default function TodoApp() {
-  const [title, setTitle] = useState("hola");
+  const [title, setTitle] = useState("Take a shower");
   const [todos, setTodos] = useState([]);
 
   function handleChange(event) {
@@ -24,6 +24,7 @@ export default function TodoApp() {
     oldTodos.unshift(newTodo);
 
     setTodos(oldTodos);
+    setTitle("");
   }
 
   const handleUpdate = (id, value) => {
@@ -34,9 +35,9 @@ export default function TodoApp() {
   };
 
   const handleDelete = (id) => {
-    const oldTodos = todos.filter((item) => item.id !== id)
+    const oldTodos = todos.filter((item) => item.id !== id);
     setTodos(oldTodos);
-  }
+  };
 
   return (
     <div className={Style.todoContainer}>
@@ -56,7 +57,12 @@ export default function TodoApp() {
 
       <div className={Style.todosContainer}>
         {todos.map((item) => (
-          <Todo key={item.id} item={item} onUpdate={handleUpdate} onDelete={handleDelete} />
+          <Todo
+            key={item.id}
+            item={item}
+            onUpdate={handleUpdate}
+            onDelete={handleDelete}
+          />
         ))}
       </div>
     </div>
