@@ -1,0 +1,48 @@
+.todo{
+    padding: 10px;
+    background-color: #ffffff;
+}
+
+.todoTitle{
+    flex: 1;
+    font-size: 20px;
+}
+
+.todoUpdateForm, .todoInfo{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.todoInput{
+    flex-wrap: 1;
+    width: 78%;
+    padding: 10px;
+    border-radius: 3px;
+    border: solid 1px #999;
+}
+
+.buttonEdit{
+    border: none;
+    border-radius: 3px;
+    background-color: #487add;
+    color: #ffffff;
+    padding: 10px 20px;
+}
+
+.buttonUpdate{
+    width: 99px;
+    border: none;
+    border-radius: 3px;
+    background-color: #487add;
+    color: #ffffff;
+    padding: 10px 20px;
+}
+
+.buttonDelete{
+    border: none;
+    border-radius: 3px;
+    background-color: #a91a1a;
+    color: #ffffff;
+    padding: 10px 20px;
+}

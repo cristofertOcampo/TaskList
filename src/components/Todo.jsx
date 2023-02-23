@@ -30,7 +30,7 @@ export const Todo = ({ item, onUpdate, onDelete }) => {
           onChange={handleChange}
           value={newValue}
         />
-        <button className={Style.button} onClick={handleClickUpdateTodo}>
+        <button className={Style.buttonUpdate} onClick={handleClickUpdateTodo}>
           Update
         </button>
       </form>
@@ -41,7 +41,7 @@ export const Todo = ({ item, onUpdate, onDelete }) => {
     return (
       <div className={Style.todoInfo}>
         <span className={Style.todoTitle}>{item.title}</span>
-        <button className={Style.button} onClick={() => setIsEdit(true)}>Edit</button>
+        <button className={Style.buttonEdit} onClick={() => setIsEdit(true)}>Edit</button>
         <button className={Style.buttonDelete} onClick={(e) => onDelete(item.id)}>Delete</button>
       </div>
     );
