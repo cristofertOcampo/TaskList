@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import Style from '../cssComponents/todo.module.css';
 
 export const Todo = ({ item, onUpdate, onDelete }) => {
   const [isEdit, setIsEdit] = useState(false);
@@ -22,14 +23,14 @@ export const Todo = ({ item, onUpdate, onDelete }) => {
     };
 
     return (
-      <form className="todoUpdateForm" onSubmit={handleSubmit}>
+      <form className={Style.todoUpdateForm} onSubmit={handleSubmit}>
         <input
           type="text"
-          className="todoInput"
+          className={Style.todoInput}
           onChange={handleChange}
           value={newValue}
         />
-        <button className="button" onClick={handleClickUpdateTodo}>
+        <button className={Style.button} onClick={handleClickUpdateTodo}>
           Update
         </button>
       </form>
@@ -38,13 +39,13 @@ export const Todo = ({ item, onUpdate, onDelete }) => {
 
   const TodoElement = () => {
     return (
-      <div className="todoInfo">
-        {item.title}
-        <button onClick={() => setIsEdit(true)}>Edit</button>
-        <button onClick={(e) => onDelete(item.id)}>Delete</button>
+      <div className={Style.todoInfo}>
+        <span className={Style.todoTitle}>{item.title}</span>
+        <button className={Style.button} onClick={() => setIsEdit(true)}>Edit</button>
+        <button className={Style.buttonDelete} onClick={(e) => onDelete(item.id)}>Delete</button>
       </div>
     );
   };
 
-  return <div className="todo">{isEdit ? <FormEdit /> : <TodoElement />}</div>;
+  return <div className={Style.todo}>{isEdit ? <FormEdit /> : <TodoElement />}</div>;
 };
